@@ -39,5 +39,9 @@ First and sixth products for free (see second note).
     * The discount is calculated in percentual terms.
     * The deal applies to sets of three products: if a customer gets 9 products, she will get the three cheapest ones for free, but if she gets 10 or 11 products, she will still get three for free. Buying a 12th product would get her a fourth free product.
     * No cart splitting allowed.
+### Keywords : 
+    * Lambda function 
+    * Unit testing
+    * Arrays
 
 
