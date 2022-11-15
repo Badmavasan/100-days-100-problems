@@ -16,7 +16,7 @@ class TestDay1(unittest.TestCase):
     def test_single_product_discount(self):
         shopping_cart = [68.74, 55.99, 17.85]
         output_shopping_cart = np.array([60.13, 48.98, 15.62])
-        self.assertTrue(np.array_equal(day1.discount(shopping_cart), output_shopping_cart))
+        self.assertTrue((day1.discount(shopping_cart) == output_shopping_cart).all())
 
     def test_single_product_discount_with_more_than_three_products(self):
         shopping_cart = [68.74, 55.99, 98.09, 17.85]
