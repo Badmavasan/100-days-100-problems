@@ -4,7 +4,7 @@ This repository contains 100 problems solved in a span of 100 days. The goal of 
 
 Chosen Programming Language : Python
 
-## DAY 1 : Retail store
+## Day 1 : Retail store
 
 A retailer is having a store-wide "buy 2, get 1 free" sale. For legal reasons, they can't charge their customers $0 for an article so a discount is applied to all products instead. For example, if a customer gets three products a, b and c:
 Product A	Product B	Product C
@@ -73,4 +73,109 @@ who_goes_free(9, 3) ➞ 0
 ### Keywords : 
     * Recursive
     * Arthmetic
+
+## Day 3 : Crack the Pin Code
+
+```
+┌───┬───┬───┐
+│ 1 │ 2 │ 3 │
+├───┼───┼───┤
+│ 4 │ 5 │ 6 │
+├───┼───┼───┤
+│ 7 │ 8 │ 9 │
+└───┼───┼───┘
+    │ 0 │
+    └───┘
+```
+Your secret agent Mubashir has already given you a pincode. However, he also said it's possible that each of the digits he saw could be another adjacent digit (horizontally or vertically, but not diagonally).
+
+Suppose the secret agent has given you the code: 46:
+
+```
+# Instead of the 4 it could also be 1, 5, or 7.
+# Instead of the 6 it could also be 3, 5, or 9.
+
+crack_pincode("46") ➞
+["13","15","16","19","43","45","46","49","53","55","56","59","73","75","76","79"]
+```
+
+Create a function that takes an argument of pincode informed by your secret agent and returns a list of all possible variations of the pin codes.
+
+### Examples
+
+```
+crack_pincode("0") ➞ ["0", "8"]
+
+crack_pincode("2") ➞ ["1", "2", "3", "5"]
+
+crack_pincode("007") ➞ ["004","007","008","084","087","088","804","807","808","884","887","888"]
+```
+
+### Conditions
+
+    * All pin codes must be strings, because of potentially leading 0s.
+
+
+## Day 4 : Minesweeper Number of Neighbouring Mines
+
+Create a function that takes a list representation of a Minesweeper board, and returns another board where the value of each cell is the amount of its neighbouring mines.
+Mines are either diagonally or adjacent to each cell
+
+### Examples
+
+The input may look like this:
+
+```
+[
+  [0, 1, 0, 0],
+  [0, 0, 1, 0],
+  [0, 1, 0, 1],
+  [1, 1, 0, 0]
+]
+```
+
+The `0` represents an empty space. The `1` represents a mine.
+
+You will have to replace each mine with a `9` and each empty space with the number of adjacent mines, the output will look like this:
+
+```
+[
+  [1, 9, 2, 1],
+  [2, 3, 9, 2],
+  [3, 9, 4, 9],
+  [9, 9, 3, 1]
+]
+```
+
+### Notes 
+
+* Since in the output the numbers `0-8` are used to determine the amount of adjacent mines, the number `9` will be used to identify the mines instead.
+
+## Day 5 : Recursion: Reversed List Index 
+
+Write a recursive function that filters the items in a list (given as parameter `arr`) by positional parity (odd or even), given as parameter `par`, starting from the opposite end. Return a list of items on odd positions (... 5, 3, 1) or on even positions (... 6, 4, 2) and counting from the last item in the list.
+
+### Examples
+
+```
+get_items_at([2, 4, 6, 8, 10], "odd") ➞ [2, 6, 10]
+// 2, 6 & 10 occupy the 5th, 3rd and 1st positions from right.
+// Odd positions, hence the parity, and from the opposite.
+
+get_items_at(["E", "D", "A", "B", "I", "T"], "even") ➞ ["E", "A", "I"]
+// E, A and I occupy the 6th, 4th and 2nd positions from right.
+// Even positions, hence the parity, and from the opposite.
+
+get_items_at([")", "(", "*", "&", "^", "%", "$", "#", "@", "!"], "even") ➞ [")", "*", ^", "$", "@"]
+
+get_items_at(["A", "R", "B", "I", "T", "R", "A", "R", "I", "L", "Y"], "even") ➞ ["R", "I", "R", "R", "L"]
+```
+
+### Notes
+
+* IMPORTANT: You are advised to solve this challenge via a recursive approach, hence, the very purpose of this challenge. You can check the Resources tab about a few topics on recursion.
+* Lists are zero-indexed, so, index+1 = position or position-1 = index.
+* Items in the list may contain duplicates. See example #4.
+* The last item in the list is always the first item to start a positional count.
+* The sequence of the items in the resulting list should be retained (i.e. example #1 - 6 should come after 2 and before 10, example #2 - "A" should come after "E" and before "I").
 
